@@ -1,13 +1,15 @@
 import React from 'react'
+import classNames from 'classnames'
+import './index.css'
 type Props = {
   children?: React.ReactNode
   onClick?: any
 }
 function Button(props: Props) {
   return (
-    <div>
-      <button onClick={props.onClick}>{props.children}</button>
-    </div>
+    <button onClick={props.onClick} className="button">
+      {props.children}
+    </button>
   )
 }
 
