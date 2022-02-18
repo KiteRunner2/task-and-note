@@ -7,8 +7,8 @@ function Register() {
     console.log('clicked')
   }
   return (
-    <div className="login-container">
-      <div className="login-card">
+    <div className="register-container">
+      <div className="register-card">
         <input type="text" />
         <input type="password" />
         <Button onClick={handleClick}>Register</Button>

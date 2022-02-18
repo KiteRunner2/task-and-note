@@ -1,6 +1,5 @@
 .login-container {
   height: 95vh;
-  border: 1px solid red;
   overflow: hidden;
   display: flex;
   align-items: center;
