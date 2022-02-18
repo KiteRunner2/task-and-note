@@ -11,7 +11,7 @@ function Login() {
       <div className="login-card">
         <input type="text" />
         <input type="password" />
-        <Button onClick={handleClick}>Login</Button>
+        <Button onClick={handleClick} type='primary'>Login</Button>
         <Link to="/register">Register</Link>
       </div>
     </div>

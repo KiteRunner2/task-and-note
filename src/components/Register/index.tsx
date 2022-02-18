@@ -11,7 +11,7 @@ function Register() {
       <div className="register-card">
         <input type="text" />
         <input type="password" />
-        <Button onClick={handleClick}>Register</Button>
+        <Button onClick={handleClick} type="primary">Register</Button>
         <Link to="/login">Login</Link>
       </div>
     </div>
