@@ -5,11 +5,20 @@ type Props = {
   children?: React.ReactNode
   onClick?: any
   type: 'primary' | 'secondary'
+  disabled?: boolean
 }
 function Button(props: Props) {
-  const classes = classNames('button',{primary: props.type === 'primary',secondary: props.type === 'secondary'})
+  const classes = classNames('button', {
+    primary: props.type === 'primary',
+    secondary: props.type === 'secondary',
+    disabled: props.disabled === true,
+  })
   return (
-    <button onClick={props.onClick} className={classes}>
+    <button
+      className={classes}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
       {props.children}
     </button>
   )
