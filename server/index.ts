@@ -1,5 +1,5 @@
 import express from 'express'
-import { PORT, BUILD_PATH } from './config/index'
+import { PORT, BUILD_PATH, ENV } from './config/index'
 import testRoute from './routes'
 import { connectDb } from './db'
 
@@ -16,5 +16,5 @@ app.get('*', (req, res) => {
 connectDb()
 
 app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`)
+  console.log(`server started on port ${PORT} in ${ENV} mode`)
 })
