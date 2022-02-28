@@ -6,6 +6,7 @@ import { connectDb } from './db'
 const app = express()
 
 app.use(express.static(BUILD_PATH!))
+app.use(express.json())
 
 app.use('/api/v1', testRoute)
 

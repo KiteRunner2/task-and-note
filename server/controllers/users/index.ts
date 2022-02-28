@@ -1,8 +1,13 @@
 import { usersCollection } from '../../db'
+import UserService from '../../services/user'
 
-export async function createUser(req: any, res: any) {
-  const age = Math.floor(Math.random() * 100)
-  await usersCollection.insertOne({ name: 'przemek', age })
+export async function registerUser(req: any, res: any) {
+  const { email, password } = req.body
+  try {
+    await UserService.registerUser(email, password)
+  } catch (err) {
+    return res.status(500).end()
+  }
   res.status(200).end()
 }
 
@@ -12,5 +17,6 @@ export async function getUser(req: any, res: any) {
 }
 
 export default {
-  createUser,
+  registerUser,
+  getUser,
 }
