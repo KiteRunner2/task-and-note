@@ -1,10 +1,12 @@
 import express from 'express'
-import userController from '../controllers/users'
+import userRoutes from './user'
 
-const router = express.Router()
+const initPublicRoutes = () => {
+  const router = express.Router()
+  router.use('/user', userRoutes)
+  return router
+}
 
-router.get('/user', userController.getUser)
-
-router.post('/user', userController.registerUser)
-
-export default router
+export default {
+  initPublicRoutes,
+}
