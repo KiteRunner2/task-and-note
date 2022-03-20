@@ -15,10 +15,22 @@ function Error(props: { errorMsg: string | null }) {
 function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const registeringError = useStore((state) => state.registeringError)
 
+  function isValidInput() {
+    if (!email || !password) {
+      return false
+    }
+    return true
+  }
+
   async function handleRegister() {
-    await registerUser('mama', 'tata')
+    if (!isValidInput()) {
+      setError('ivalid input')
+      return
+    }
+    await registerUser(email, password)
   }
 
   function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -48,7 +60,7 @@ function Register() {
         </Button>
         <Link to="/login">Login</Link>
       </LoginRegisterCard>
-      <Error errorMsg={registeringError} />
+      <Error errorMsg={registeringError || error} />
     </LoginRegisterContainer>
   )
 }
